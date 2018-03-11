@@ -455,6 +455,10 @@ namespace Nvidia.TextureTools
 
 		internal IntPtr options;
 
+		private BeginImageHandler beginImageHandler;
+		private OutputHandler outputHandler;
+		private EndImageHandler endImageHandler;
+
 		public OutputOptions()
 		{
 			options = nvttCreateOutputOptions();
@@ -480,15 +484,17 @@ namespace Nvidia.TextureTools
 		// @@ Add OutputHandler interface.
 		public void SetOutputOptionsOutputHandler (BeginImageHandler beginImageHandler, OutputHandler outputHandler, EndImageHandler endImageHandler)
 		{
-			IntPtr writeData = IntPtr.Zero;
-			IntPtr beginImage = IntPtr.Zero;
-			IntPtr endImage = IntPtr.Zero;
-			if (beginImageHandler != null || outputHandler != null || endImageHandler != null) {
-				writeData = Marshal.GetFunctionPointerForDelegate (outputHandler);
-				beginImage = Marshal.GetFunctionPointerForDelegate (beginImageHandler);
-				endImage = Marshal.GetFunctionPointerForDelegate (endImageHandler);
-			}
-			nvttSetOutputOptionsOutputHandler (this.options, beginImage, writeData, endImage);
+			// We hold the delegates for the lifetime of OutputOptions so 
+			// that the GC doesn't consume them breaking our native pointer.
+			this.beginImageHandler = beginImageHandler;
+			this.outputHandler = outputHandler;
+			this.endImageHandler = endImageHandler;
+
+			IntPtr writeData = Marshal.GetFunctionPointerForDelegate(this.outputHandler);
+			IntPtr beginImage = Marshal.GetFunctionPointerForDelegate(this.beginImageHandler);
+			IntPtr endImage = Marshal.GetFunctionPointerForDelegate(this.endImageHandler);
+
+			nvttSetOutputOptionsOutputHandler(this.options, beginImage, writeData, endImage);
 		}
 	}
 	#endregion
