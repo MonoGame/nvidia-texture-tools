@@ -9,6 +9,9 @@
 **/Debug-CUDA/
 **/Release-CUDA/
 *.vcxproj.user
+*.csproj.user
 *.opensdf
 *.sdf
 *.suo
+project/vc12/packages/**/*
+
