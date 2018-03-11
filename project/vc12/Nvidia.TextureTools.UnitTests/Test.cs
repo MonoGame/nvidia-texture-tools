@@ -10,8 +10,11 @@ namespace Nvidia.TextureTools.UnitTests
     {
         private static int _count;
 
+        // NOTE: This stress test takes around 5 times longer on 
+        // Mac because it seems Mono's GC is that much slower.
+
         [Test]
-        [Repeat(100)]
+        [Repeat(200)]
         [Parallelizable]
         public void StressTest()
         {
@@ -37,6 +40,7 @@ namespace Nvidia.TextureTools.UnitTests
 
         private void TestRandom(int sizeX, int sizeY, int seed, Format format, AlphaMode alphaMode, Quality quality)
         {
+            Console.WriteLine("TestRandom {0} {1}x{2} {3} {4} {5}", seed, sizeX, sizeY, format, alphaMode, quality);
             var data = CreateRandomTexture(sizeX, sizeY, seed);
             TestCompress(sizeX, sizeY, data, Format.DXT1, AlphaMode.Premultiplied, Quality.Highest);
         }
@@ -75,7 +79,6 @@ namespace Nvidia.TextureTools.UnitTests
                 var compressionOptions = new CompressionOptions();
                 compressionOptions.SetFormat(format);
                 compressionOptions.SetQuality(quality);
-                compressionOptions.SetPixelFormat(32, 0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000);
 
                 var dataHelper = new DataHelper();
 
