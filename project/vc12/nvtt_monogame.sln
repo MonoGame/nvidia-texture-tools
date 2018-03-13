@@ -35,6 +35,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "squish", "squish\squish.vcxproj", "{CE017322-01FC-4851-9C8B-64E9A8E26C38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nvidia.TextureTools", "Nvidia.TextureTools\Nvidia.TextureTools.csproj", "{CAB55C39-8FA9-4912-98D9-E52669C8911D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1AEB7681-57D8-48EE-813D-5C41CC38B647} = {1AEB7681-57D8-48EE-813D-5C41CC38B647}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imperativeapi", "imperativeapi\imperativeapi.vcxproj", "{7DCF280E-702B-49F3-84A7-AE7E146384D6}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -222,21 +225,15 @@ Global
 		{F974F34B-AF02-4C88-8E1E-85475094EA78}.Release-CUDA|x64.ActiveCfg = Release|x64
 		{F974F34B-AF02-4C88-8E1E-85475094EA78}.Release-CUDA|x64.Build.0 = Release|x64
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug|Win32.Build.0 = Debug|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug|x64.Build.0 = Debug|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug-CUDA|Win32.ActiveCfg = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug-CUDA|Win32.Build.0 = Debug|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug-CUDA|x64.ActiveCfg = Debug|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Debug-CUDA|x64.Build.0 = Debug|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release|Win32.ActiveCfg = Release|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release|Win32.Build.0 = Release|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release|x64.ActiveCfg = Release|Any CPU
 		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release|x64.Build.0 = Release|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|Win32.ActiveCfg = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|Win32.Build.0 = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|x64.ActiveCfg = Debug|Any CPU
-		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|x64.Build.0 = Debug|Any CPU
+		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|Win32.ActiveCfg = Release|Any CPU
+		{553ABAEE-C4B8-4196-BC4A-EFF71D47CEAA}.Release-CUDA|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
